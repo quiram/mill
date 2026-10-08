@@ -45,9 +45,9 @@ The defaults, for reference:
 
 ## Step 2 — Recommend a model
 
-Skim the code areas the task touches, then invoke **recommend-model** with a brief: the ticket text plus what you found there (how many areas, how well-trodden the patterns, anything risky). Present its recommendation and let the user confirm or override before continuing. This skill does not switch models; the user does that with whatever their harness provides.
+Skim the code areas the task touches, then invoke **recommend-model** with a brief: the ticket text plus what you found there (how many areas, how well-trodden the patterns, anything risky). If the user has already delegated the model choice (in this request or in the project's context), say so in the brief so recommend-model selects the model without asking; otherwise present its recommendation and let the user confirm or override before continuing, switching models themselves with whatever their harness provides.
 
-If recommend-model cannot be found, say so and proceed: the model choice is advisory and must never block starting the work.
+If recommend-model cannot be found, say so and proceed: the model choice must never block starting the work.
 
 ## Step 3 — Fresh branch from an up-to-date base
 

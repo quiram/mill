@@ -20,7 +20,7 @@ The first step of a piece of implementation work. It reads the ticket from the p
 
 ### recommend-model
 
-Given a task and what is known about the code it touches, recommends the cheapest model that can handle it well: lightweight for mechanical changes, standard for most work, frontier for architectural ambiguity or costly mistakes. It maps that onto the models the user can actually select, and only recommends; switching is the user's call. It also works standalone.
+Given a task and what is known about the code it touches, recommends the cheapest model that can handle it well: lightweight for mechanical changes, standard for most work, frontier for architectural ambiguity or costly mistakes. It maps that onto the models the user can actually select, and by default only recommends, leaving the switch to you. Tell it the choice is its to make and it selects the model itself, wherever your harness lets an agent do that. It also works standalone.
 
 ## What a consuming repo can provide
 

@@ -13,7 +13,7 @@ description: >-
 
 Judging how hard a task is needs the task in front of you, so this skill works from a **brief**, not from a ticket number: the task's description and acceptance criteria, plus whatever is known about the code it touches. `start-task` writes that brief after reading the ticket and skimming the code; a user can also hand one over directly. If the brief is too thin to judge ("fix the bug"), ask for what is missing rather than guessing.
 
-The skill only recommends. It never switches models: the user does that with whatever their harness provides.
+By default the skill only recommends, and the user switches models with whatever their harness provides. If the user has said the choice is the agent's to make ("pick the model yourself", "no need to ask"), or the project's context says so, the skill goes on to select the model itself, wherever the harness gives it a way to (Step 6).
 
 ## Step 1 — Know the project's own guidance
 
@@ -44,4 +44,12 @@ Tiers are vendor-neutral; the recommendation must name something the user can ac
 
 ## Step 5 — Present
 
-Give one recommendation: the model, the tier, and a one-line rationale tied to this specific task, not to the generic table. Mention a close runner-up only if the call is genuinely tight. Then let the user confirm or choose differently.
+Give one recommendation: the model, the tier, and a one-line rationale tied to this specific task, not to the generic table. Mention a close runner-up only if the call is genuinely tight.
+
+## Step 6 — Confirm, or apply
+
+- **Choice not delegated** (the default): let the user confirm or choose differently, and leave the switching to them.
+- **Choice delegated:** don't ask. Select the model with whatever mechanism the harness exposes to the agent, then say in one line which model you selected and why, so the user can still override. Delegation covers the model choice only; it does not extend to anything else the user is asked to confirm.
+- **Delegated, but the harness gives the agent no way to switch** (some only let the user change the session's model): say so, give the recommendation, and carry on. Never pretend a switch happened.
+
+Delegation holds for the task at hand. Don't write it into the project's context or treat it as standing for later tasks unless the user asks you to record it.

@@ -23,7 +23,9 @@ Skills read the host project's context, and when it is silent they fall back to 
 
 ### Model recommendation is its own skill, fed by a brief
 
-Judging difficulty needs the task, and `start-task` is where the task is read. But the judgement itself is reusable, and tangling it into `start-task` would make it unusable on its own. So `recommend-model` takes a **brief** as input rather than fetching anything itself: `start-task` reads the ticket and skims the code, then passes both along. `start-task` treats the recommendation as advisory and carries on if the skill is unavailable.
+Judging difficulty needs the task, and `start-task` is where the task is read. But the judgement itself is reusable, and tangling it into `start-task` would make it unusable on its own. So `recommend-model` takes a **brief** as input rather than fetching anything itself: `start-task` reads the ticket and skims the code, then passes both along. `start-task` carries on if the skill is unavailable.
+
+The recommendation is advisory unless the user delegates the choice, in which case the skill applies it through whatever the harness exposes, and falls back to advising when the harness exposes nothing. That keeps friction out for users who don't care while staying agent-agnostic, since not every harness lets an agent change its own model.
 
 Recommendations are expressed in vendor-neutral tiers and mapped to the models the user can actually select, so no skill hard-codes a model lineup.
 
