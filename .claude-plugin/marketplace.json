@@ -1,0 +1,15 @@
+{
+  "name": "mill",
+  "owner": {
+    "name": "Abraham Marin Perez",
+    "url": "https://github.com/quiram"
+  },
+  "plugins": [
+    {
+      "name": "mill",
+      "description": "Software-development skills that turn agreed work into a usable product: start-task (identify the task, pick the right model, and open a fresh branch from an up-to-date default branch) and recommend-model (match a task's difficulty to the cheapest model that can handle it).",
+      "version": "0.1.0",
+      "source": "./"
+    }
+  ]
+}

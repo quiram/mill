@@ -1,0 +1,41 @@
+name: mill
+version: 0.1.0
+description: >-
+  Skills for turning agreed work into a usable product: start-task (identify
+  the task, pick the right model, and open a fresh branch from an up-to-date
+  default branch) and recommend-model (match a task's difficulty to the
+  cheapest model that can handle it).
+author: Abraham Marin Perez
+license: MIT
+dependencies:
+  apm: []
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}
+marketplace:
+  owner:
+    name: Abraham Marin Perez
+    url: https://github.com/quiram
+
+  # Default tag pattern used to resolve version ranges for each package.
+  build:
+    tagPattern: "v{version}"
+
+  # Output targets. 'claude' generates .claude-plugin/marketplace.json,
+  # consumed by both APM and Claude Code's native /plugin marketplace flow.
+  outputs:
+    claude: {}
+
+  # This repo is both the package and the marketplace that serves it:
+  # the single entry below points at the repo root itself.
+  packages:
+    - name: mill
+      description: >-
+        Software-development skills that turn agreed work into a usable
+        product: start-task (identify the task, pick the right model, and open
+        a fresh branch from an up-to-date default branch) and recommend-model
+        (match a task's difficulty to the cheapest model that can handle it).
+      source: ./
+      version: 0.1.0
