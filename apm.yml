@@ -1,5 +1,5 @@
 name: mill
-version: 0.1.0
+version: 0.1.1
 description: >-
   Skills for turning agreed work into a usable product: start-task (identify
   the task, pick the right model, and open a fresh branch from an up-to-date
@@ -38,4 +38,4 @@ marketplace:
         a fresh branch from an up-to-date default branch) and recommend-model
         (match a task's difficulty to the cheapest model that can handle it).
       source: ./
-      version: 0.1.0
+      version: 0.1.1
