@@ -41,6 +41,7 @@ The defaults, for reference:
 | Branch name | `type/<ticket#>-<short-description>` (e.g. `fix/123-login-redirect`), or `type/<short-description>` with no ticket. `type` is one of `feat`, `fix`, `chore`, `docs`, `refactor`. |
 | Base branch | The remote's default branch. |
 | Isolation | A worktree if the harness offers one; otherwise a plain branch in the current checkout. |
+| Worktree location | The harness's own default location for worktrees if it has one; otherwise `.worktrees/<branch-name>` inside the project folder. Never outside the project folder. |
 | Implementation workflow | Propose a numbered plan and wait for explicit approval before writing code. |
 
 ## Step 1 — Identify the task
@@ -59,7 +60,10 @@ Always start from the current tip of the base branch, never from whatever branch
 1. **Check the starting state.** `git status --porcelain` must be clean enough to leave behind. If there are uncommitted changes, tell the user and ask what to do; never stash, discard or carry them over silently.
 2. **Find and sync the base.** Find the default branch (`git symbolic-ref --short refs/remotes/origin/HEAD`) unless the context names one, then `git fetch origin`. Create the branch from `origin/<base>`, not from a possibly stale local copy.
 3. **Create the branch** with the confirmed name, in an isolated worktree if that is the practice in play. If the harness has a worktree facility, prefer it; otherwise use `git worktree add -b <branch> <path> origin/<base>`.
-   - Anchor the worktree path at the **main repo root** (absolute path), never relative to the current directory: if you are already inside a worktree, a relative path nests the new one inside it, and removing the outer worktree later orphans the inner one. This applies whether you create the worktree yourself or the harness does.
+   - **Stay inside the project folder.** Never create a worktree outside the project's root, for example in a sibling directory such as `<project>-worktree`: many harnesses are configured to refuse reads and writes outside the project, so a worktree out there is unusable. This holds even if the project's context names a location outside the folder; in that case say so and propose an inside one instead.
+   - **Where inside.** Use the harness's own default location for worktrees if it has one, since it will already be handled (for instance, ignored by git and permitted by the harness). If it has none, use the location the project's context gives, or else the default in the table above.
+   - **Keep it out of git status.** A worktree inside the repo shows up as untracked unless something ignores it. If the harness's location is not already ignored, add the path to the repo's local exclude file (`$(git rev-parse --git-common-dir)/info/exclude`), which is not committed, rather than editing `.gitignore`: using mill must leave no trace in the project's files.
+   - Anchor the worktree path at the **main repo root** (absolute path), never relative to the current directory: if you are already inside a worktree, a relative path nests the new one inside it, and removing the outer worktree later orphans the inner one. The path is therefore `<main repo root>/<location>/<name>`, and this applies whether you create the worktree yourself or the harness does.
 4. **Verify.** Run `git branch --show-current` and confirm it is the intended name. If the tooling named it differently, rename it with `git branch -m <intended-name>` before doing anything else.
 5. **Submodules.** If the repo has any (`.gitmodules` exists), run `git submodule update --init --recursive`. A fresh worktree does not populate them, and rules or tooling that import from a submodule fail silently without it. Do this regardless of whether the directories look populated.
 

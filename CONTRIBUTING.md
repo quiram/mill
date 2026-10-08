@@ -29,6 +29,10 @@ The recommendation is advisory unless the user delegates the choice, in which ca
 
 Recommendations are expressed in vendor-neutral tiers and mapped to the models the user can actually select, so no skill hard-codes a model lineup.
 
+### Worktrees stay inside the project
+
+`start-task` never creates a worktree outside the project's root. Harnesses are commonly configured to refuse reads and writes beyond the project folder, so a sibling worktree such as `<project>-worktree` is unusable there. The location is the harness's own default if it has one, and `.worktrees/<branch-name>` otherwise. If that location needs ignoring, the skill uses the repo's local `info/exclude` rather than `.gitignore`, to honour the footprint-free objective.
+
 ### No setup skill
 
 mill has no prerequisites to install: no tooling, models or OS permissions. Everything it needs it discovers from the project's context at run time or asks the user for, so there is nothing for a setup skill to prepare.

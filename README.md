@@ -16,7 +16,7 @@ A mill is where the harvest becomes something you can use. Grain that has been t
 
 ### start-task
 
-The first step of a piece of implementation work. It takes the task from a ticket in the project's tracker or from a requirement you simply describe, creates a fresh branch (in a worktree, where that is the practice) from an up-to-date default branch, and then asks `recommend-model` which model suits the task, now that it is looking at current code. It then hands over to the project's own implementation workflow — or, if the project has none, proposes a plan and waits for approval before any code is written.
+The first step of a piece of implementation work. It takes the task from a ticket in the project's tracker or from a requirement you simply describe, creates a fresh branch (in a worktree, where that is the practice, always kept inside the project folder) from an up-to-date default branch, and then asks `recommend-model` which model suits the task, now that it is looking at current code. It then hands over to the project's own implementation workflow — or, if the project has none, proposes a plan and waits for approval before any code is written.
 
 ### recommend-model
 
