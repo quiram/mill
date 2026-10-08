@@ -2,7 +2,7 @@
 
 Terms mill's skills use throughout and define nowhere else.
 
-**mill** — the package: the whole set of skills for turning agreed work into a usable product.
+**mill** — the package: the whole set of skills for turning agreed work into a usable product. It is the sibling of [winnow](https://github.com/quiram/winnow), which sifts raw input into the requirements mill works from; the two are independent packages that share a theme and a philosophy.
 
 **AI context** — a project's durable documentation: the "advanced README" (`AGENTS.md`, `CLAUDE.md`, `docs/`…) that tells agents how to work on it. mill's skills read it to learn the project's tracker, conventions and workflow.
 

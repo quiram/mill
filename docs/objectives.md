@@ -1,6 +1,6 @@
 # Objectives
 
-mill exists to take agreed work and carry it towards a usable product. Where the grain has been sifted and the tasks are known, mill is the machinery that processes them: it sets up the work, matches the right tools to it, and hands over to the project's own way of building.
+mill exists to take agreed work and carry it towards a usable product. It follows [winnow](https://github.com/quiram/winnow) in the agricultural pair: once the grain has been sifted and the tasks are known, mill is the machinery that processes them: it sets up the work, matches the right tools to it, and hands over to the project's own way of building.
 
 What it is trying to be:
 
