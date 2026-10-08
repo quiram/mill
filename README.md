@@ -10,13 +10,7 @@ The package is agent-agnostic: it is distributed with [APM (Agent Package Manage
 
 ## Why "mill"?
 
-A mill is where the harvest becomes something you can use. Grain that has been threshed and sifted is no good as it is; the millstones, the sails and the miller's judgement turn it into flour. These skills are that machinery for software: the sifted tasks come in, and a working product is what is meant to come out. The logo is a windmill, sails turning.
-
-## Part of a set
-
-mill is the second stage of an agricultural pair. [winnow](https://github.com/quiram/winnow) sifts raw input — meetings, brainstorms, voice notes — into durable project knowledge and well-formed tickets; once the requirements have been winnowed, mill takes them and processes them into the final product.
-
-The two are independent packages: neither requires the other, and each works on its own with whatever context and tracker the host project already has. They share a philosophy and a vocabulary, so they fit together when used side by side — the tickets winnow raises are exactly what `start-task` picks up.
+A mill is where the harvest becomes something you can use. Grain that has been threshed and sifted is no good as it is; the millstones, the sails and the miller's judgement turn it into flour. These skills are that machinery for software: once [winnow](https://github.com/quiram/winnow) has sifted the raw input into requirements, mill takes them and processes them into the final product. The tickets winnow raises are exactly what `start-task` picks up, though neither package requires the other. The logo is a windmill, sails turning.
 
 ## The skills
 
