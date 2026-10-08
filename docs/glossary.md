@@ -12,6 +12,6 @@ Terms mill's skills use throughout and define nowhere else.
 
 **Task** — one unit of implementation work, usually backed by a ticket in the project's tracker but possibly ad hoc.
 
-**Brief** — the description of a task handed to `recommend-model`: the ticket text plus what has been learned about the code it touches.
+**Brief** — the description of a task handed to `recommend-model`: the task text (ticket or inline requirement) plus what has been learned about the code it touches.
 
 **Tier** — a class of model by capability and cost (lightweight, standard, frontier, specialised). `recommend-model` reasons in tiers and then maps them to whichever models the host harness actually offers.

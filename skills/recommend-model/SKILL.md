@@ -19,6 +19,8 @@ By default the skill only recommends, and the user switches models with whatever
 
 Read the project's AI context for model guidance: a table of models, cost constraints, areas where the cost of an error is high. Where the project has its own guidance, it overrides the tiers below.
 
+If the project gives **no** guidance and the harness has an automatic mode that routes each request to a suitable model, recommend that mode and stop there: it already does this skill's job, request by request, and needs no tier mapping. Say that this is why you are recommending it. If the harness has no such mode, carry on to the assessment.
+
 ## Step 2 — Assess the task
 
 Weigh these signals, using the brief and the code, not the ticket's title alone:
@@ -43,6 +45,9 @@ Weigh these signals, using the brief and the code, not the ticket's title alone:
 Tiers are vendor-neutral; the recommendation must name something the user can actually select. Take the available models from the project's context, or from what the harness reports about itself. If neither tells you, **ask the user what models they can choose from** and map the tier onto those. Do not recite a vendor's lineup from memory as if it were the user's choices. Where the offering has fewer tiers than the table, pick the nearest and say so.
 
 ## Step 5 — Present
+
+Ask the user things through the harness's structured question facility if it has one, and in plain text otherwise.
+
 
 Give one recommendation: the model, the tier, and a one-line rationale tied to this specific task, not to the generic table. Mention a close runner-up only if the call is genuinely tight.
 
